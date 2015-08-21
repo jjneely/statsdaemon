@@ -4,6 +4,22 @@ statsdaemon
 Port of Etsy's statsd (https://github.com/etsy/statsd), written in Go (originally based
 on [amir/gographite](https://github.com/amir/gographite)).
 
+This is a fork of Bitly's Statsdaemon code.  Goals for this fork are:
+
+* Support float64 timers - done
+* Support float64 gauges - done
+* Support float64 counters
+* Add timer statistics
+    * standard deviation (`std`)
+    * count per second (`count_ps`)
+    * sum (`sum`)
+    * sum of sqaures (`sum_squares`)
+    * median (`median`)
+    * count percentiles
+    * mean percentiles
+    * sum percentiles
+    * sum of squares percentiles
+
 Supports
 
 * Timing (with optional percentiles)
@@ -11,28 +27,12 @@ Supports
 * Gauges (including relative operations)
 * Sets
 
-Note: Only integers are supported for metric values.
-
-[![Build Status](https://secure.travis-ci.org/bitly/statsdaemon.png)](http://travis-ci.org/bitly/statsdaemon)
-
 Installing
 ==========
 
-### Binary Releases
-Pre-built binaries for darwin and linux.
-
-### Current Stable Release: `v0.7.1`
-* [statsdaemon-0.7.1.darwin-amd64.go1.4.2.tar.gz](https://github.com/bitly/statsdaemon/releases/download/v0.7.1/statsdaemon-0.7.1.darwin-amd64.go1.4.2.tar.gz)
-* [statsdaemon-0.7.1.linux-amd64.go1.4.2.tar.gz](https://github.com/bitly/statsdaemon/releases/download/v0.7.1/statsdaemon-0.7.1.linux-amd64.go1.4.2.tar.gz)
-
-### Older Releases
-* [statsdaemon-0.6-alpha.darwin-amd64.go1.3.tar.gz](https://github.com/bitly/statsdaemon/releases/download/v0.6-alpha/statsdaemon-0.6-alpha.darwin-amd64.go1.3.tar.gz)
-* [statsdaemon-0.6-alpha.linux-amd64.go1.3.tar.gz](https://github.com/bitly/statsdaemon/releases/download/v0.6-alpha/statsdaemon-0.6-alpha.linux-amd64.go1.3.tar.gz)
-* [statsdaemon-0.5.2-alpha.linux-amd64.go1.1.1.tar.gz](https://github.com/bitly/statsdaemon/releases/download/v0.5.2-alpha/statsdaemon-0.5.2-alpha.linux-amd64.go1.1.1.tar.gz)
-
 ### Building from Source
 ```
-git clone https://github.com/bitly/statsdaemon
+git clone https://github.com/jjneely/statsdaemon
 cd statsdaemon
 go get github.com/bmizerany/assert #for tests
 go build
